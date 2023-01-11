@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/DiceStyle.css" rel="stylesheet"></link>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="playerscard">
+            <div class="playercard player1Card">
+                <div>
+                    <div class="titleturn">
+                        <h3 class="title">PLAYER 1</h3>
+                        <div class="turnpoint player1turnpoint hidden"></div>
+
+                    </div>
+                    <div class="winner winner1 hidden">
+                        WINNER
+                    </div>
+                    <h1 class="player1score">
+
+                    </h1>
+                </div>
+
+                <div class="currentscore ">
+                    <div>Current</div>
+                    <br>
+                    <div class="currentscorevalue player1currentscore">0</div>
+                </div>
+            </div>
+            <div class="playercard player2Card ">
+                <div>
+                    <div class="titleturn">
+                        <h3 class="title">PLAYER 2</h3>
+                        <div class="turnpoint player2turnpoint hidden"></div>
+                    </div>
+                    <h1 class="player2score">20</h1>
+                    <div class="winner winner2 hidden">
+                        WINNER
+                    </div>
+                </div>
+                <div class="currentscore">
+                    <div>Current</div>
+                    <br>
+                    <div class="currentscorevalue player2currentscore">51</div>
+                </div>
+
+            </div>
+            <div onclick="newgame()" class="newgamebutton">
+                <div
+                    style="width: 15px; height: 15px; border-radius: 600px; border-style: solid; border-width: 2px; border-color: rgb(140, 140, 255);">
+                    <svg fill="#000000" width="100%" height="100%" viewBox="0 0 32 32" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>plus</title>
+                        <path
+                            d="M30 15.25h-13.25v-13.25c0-0.414-0.336-0.75-0.75-0.75s-0.75 0.336-0.75 0.75v0 13.25h-13.25c-0.414 0-0.75 0.336-0.75 0.75s0.336 0.75 0.75 0.75v0h13.25v13.25c0 0.414 0.336 0.75 0.75 0.75s0.75-0.336 0.75-0.75v0-13.25h13.25c0.414 0 0.75-0.336 0.75-0.75s-0.336-0.75-0.75-0.75v0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="newgamebuttontext">NEW GAME</div>
+
+            </div>
+            <div onclick="roll()" class="rollbutton">
+                <div
+                    style=" display: flex; align-items: center; padding: 2px; width: 12px; height: 12px; border-radius: 600px; border-style: solid; border-width: 2px; border-color: rgb(140, 140, 255);">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 303.597 303.597" xml:space="preserve">
+                        <path style="fill:#231F20;" d="M57.866,268.881c25.982,19.891,56.887,30.403,89.369,30.402h0.002c6.545,0,13.176-0.44,19.707-1.308
+                    	c39.055-5.187,73.754-25.272,97.702-56.557c14.571-19.033,24.367-41.513,28.329-65.01c0.689-4.084-2.064-7.954-6.148-8.643
+                    	l-19.721-3.326c-1.964-0.33-3.974,0.131-5.595,1.284c-1.621,1.153-2.717,2.902-3.048,4.864
+                    	c-3.019,17.896-10.49,35.032-21.608,49.555c-18.266,23.861-44.73,39.181-74.521,43.137c-4.994,0.664-10.061,1-15.058,1
+                    	c-24.757,0-48.317-8.019-68.137-23.191c-23.86-18.266-39.18-44.73-43.136-74.519c-3.957-29.787,3.924-59.333,22.189-83.194
+                    	c21.441-28.007,54.051-44.069,89.469-44.069c24.886,0,48.484,7.996,68.245,23.122c6.55,5.014,12.43,10.615,17.626,16.754
+                    	l-36.934-6.52c-1.956-0.347-3.973,0.101-5.604,1.241c-1.631,1.141-2.739,2.882-3.085,4.841l-3.477,19.695
+                    	c-0.72,4.079,2.003,7.969,6.081,8.689l88.63,15.647c0.434,0.077,0.869,0.114,1.304,0.114c1.528,0,3.031-0.467,4.301-1.355
+                    	c1.63-1.141,2.739-2.882,3.084-4.841l15.646-88.63c0.721-4.079-2.002-7.969-6.081-8.69l-19.695-3.477
+                    	c-4.085-0.723-7.97,2.003-8.689,6.082l-6.585,37.3c-7.387-9.162-15.87-17.463-25.248-24.642
+                    	c-25.914-19.838-56.86-30.324-89.495-30.324c-46.423,0-89.171,21.063-117.284,57.787C6.454,93.385-3.878,132.123,1.309,171.178
+                    	C6.497,210.236,26.583,244.933,57.866,268.881z" />
+                    </svg>
+                </div>
+                <div class="newgamebuttontext">ROLL DICE</div>
+            </div>
+            <div onclick="hold()" class="holdbutton">
+                <div
+                    style=" display: flex; align-items: center; padding: 2px; width: 12px; height: 12px; border-radius: 600px; border-style: solid; border-width: 2px; border-color: rgb(140, 140, 255);">
+                    <svg height="100%" width="100%" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.448 511.448" xml:space="preserve">
+                        <g>
+                            <path style="fill:#FFFFFF;" d="M282.788,114.33c0,37.204-21.364,71.117-54.127,87.498v-21.662
+		c21.916-14.559,35.348-39.358,35.348-65.836c0-43.556-35.437-78.982-78.982-78.982s-78.982,35.426-78.982,78.982
+		c0,26.478,13.432,51.277,35.348,65.836v21.662c-32.764-16.382-54.127-50.294-54.127-87.498c0-53.906,43.854-97.761,97.761-97.761
+		S282.788,60.424,282.788,114.33z" />
+                            <path style="fill:#FFFFFF;" d="M424.182,257.248v157.544c0,44.163-35.923,80.086-80.086,80.086H213.373
+		c-34.52,0-65.063-22.004-75.977-54.757l-31.394-94.204c-5.015-15.045,0.287-31.339,13.189-40.562l22.203-15.863v72.277
+		c0,4.573,3.712,8.285,8.285,8.285s8.285-3.712,8.285-8.285V114.33c0-7.611,3.226-14.913,8.87-20.027
+		c5.7-5.192,13.123-7.644,20.877-6.904c13.675,1.303,24.379,13.797,24.379,28.455v175.218c0,4.573,3.712,8.285,8.285,8.285
+		s8.285-3.712,8.285-8.285V238.05c0-7.611,3.226-14.913,8.87-20.027c5.7-5.192,13.123-7.655,20.877-6.904
+		c13.675,1.303,24.379,13.797,24.379,28.455v7.313v53.023c0,4.573,3.712,8.285,8.285,8.285c4.573,0,8.285-3.712,8.285-8.285v-53.023
+		c0-7.611,3.226-14.913,8.87-20.027c5.7-5.192,13.123-7.655,20.877-6.904c13.675,1.303,24.379,13.797,24.379,28.455v7.313v53.023
+		c0,4.573,3.712,8.285,8.285,8.285s8.285-3.712,8.285-8.285v-53.023c0-7.611,3.226-14.913,8.87-20.027
+		c5.7-5.192,13.123-7.655,20.877-6.904C413.478,230.096,424.182,242.59,424.182,257.248z" />
+                        </g>
+                        <path style="fill:#C2E95D;" d="M247.44,114.33c0,16.934-6.948,32.985-18.779,44.594v-43.07c0-23.109-17.299-42.849-39.38-44.959
+	c-12.271-1.16-24.522,2.894-33.603,11.146c-9.08,8.252-14.283,20.027-14.283,32.289v44.594
+	c-11.831-11.61-18.779-27.671-18.779-44.594c0-34.409,28.003-62.412,62.412-62.412S247.44,79.921,247.44,114.33z" />
+                        <path style="fill:#535757;"
+                            d="M440.751,257.248v157.544c0,53.299-43.357,96.656-96.656,96.656H213.373
+	c-41.667,0-78.518-26.556-91.696-66.091l-31.394-94.193c-7.336-21.993,0.42-45.82,19.275-59.286l31.836-22.744v-49.101
+	C98.92,202.48,70.696,160.581,70.696,114.33C70.696,51.288,121.985,0,185.026,0s114.33,51.288,114.33,114.33
+	c0,31.04-12.725,60.114-33.923,81.191c12.239,2.861,22.524,11.212,28.456,22.292c1.005-1.127,2.066-2.198,3.181-3.214
+	c9.081-8.252,21.332-12.306,33.603-11.146c14.604,1.392,27.12,10.505,33.912,23.197c1.005-1.127,2.066-2.198,3.181-3.214
+	c9.081-8.252,21.332-12.306,33.603-11.146C423.453,214.399,440.751,234.139,440.751,257.248z M424.182,414.792V257.248
+	c0-14.659-10.704-27.152-24.379-28.455c-7.755-0.751-15.177,1.712-20.877,6.904c-5.645,5.114-8.87,12.416-8.87,20.027v53.023
+	c0,4.573-3.712,8.285-8.285,8.285s-8.285-3.712-8.285-8.285v-53.023v-7.313c0-14.659-10.704-27.152-24.379-28.455
+	c-7.755-0.751-15.177,1.712-20.877,6.904c-5.645,5.114-8.87,12.416-8.87,20.027v53.023c0,4.573-3.712,8.285-8.285,8.285
+	c-4.573,0-8.285-3.712-8.285-8.285v-53.023v-7.313c0-14.659-10.704-27.152-24.379-28.455c-7.755-0.751-15.177,1.712-20.877,6.904
+	c-5.645,5.114-8.87,12.416-8.87,20.027v53.023c0,4.573-3.712,8.285-8.285,8.285c-4.573,0-8.285-3.712-8.285-8.285V115.855
+	c0-14.659-10.704-27.152-24.379-28.455c-7.755-0.74-15.177,1.712-20.877,6.904c-5.645,5.114-8.87,12.416-8.87,20.027v247.439
+	c0,4.573-3.712,8.285-8.285,8.285c-4.573,0-8.285-3.712-8.285-8.285v-72.277l-22.203,15.863
+	c-12.903,9.224-18.204,25.517-13.189,40.562l31.394,94.204c10.914,32.753,41.457,54.757,75.977,54.757H344.1
+	C388.259,494.878,424.182,458.955,424.182,414.792z M228.661,201.829c32.764-16.382,54.127-50.294,54.127-87.498
+	c0-53.906-43.854-97.761-97.761-97.761S87.267,60.424,87.267,114.33c0,37.204,21.364,71.117,54.127,87.498v-21.662
+	c-21.916-14.559-35.348-39.358-35.348-65.836c0-43.556,35.437-78.982,78.982-78.982s78.982,35.426,78.982,78.982
+	c0,26.478-13.432,51.277-35.348,65.836V201.829z M228.661,158.924c11.831-11.61,18.779-27.66,18.779-44.594
+	c0-34.409-28.003-62.412-62.412-62.412s-62.412,28.003-62.412,62.412c0,16.923,6.948,32.985,18.779,44.594V114.33
+	c0-12.261,5.203-24.037,14.283-32.289c9.081-8.252,21.332-12.306,33.603-11.146c22.082,2.11,39.38,21.85,39.38,44.959V158.924z" />
+                    </svg>
+                </div>
+                <div class="newgamebuttontext">HOLD</div>
+            </div>
+
+            <div class="dice dice1 hidden">
+                <div class="point"></div>
+            </div>
+            <div class="dice dice2 hidden">
+                <div class="dice2c1">
+                    <div class="point"></div>
+
+                </div>
+                <div class="dice2c2">
+                    <div class="point"></div>
+
+                </div>
+            </div>
+            <div class="dice dice3 hidden">
+                <div class="dice3c1">
+                    <div class="point"></div>
+                </div>
+                <div class="dice3c2">
+                    <div class="point"></div>
+                </div>
+                <div class="dice3c3">
+                    <div class="point"></div>
+                </div>
+            </div>
+
+            <div class="dice dice4 hidden">
+                <div class="dice4c1">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+                <div class="dice4c2">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+            </div>
+            <div class="dice dice5 hidden">
+                <div class="dice5c1">
+                    <div class="point"></div>
+                    <div class="point"></div>
+
+                </div>
+                <div class="dice5c2">
+                    <div class="point"></div>
+                </div>
+                <div class="dice5c3">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+
+            </div>
+            <div class="dice dice6 hidden">
+                <div class="dice6c1">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+
+                </div>
+                <div class="dice6c2">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class Player {
+            #Score
+            #Current
+            constructor() {
+                this.#Score = 0;
+                this.#Current = 0;
+            }
+            Hold() {
+                this.#Score += this.#Current
+                this.#Current = 0
+            }
+            setCurrent(value) {
+                this.#Current = value
+            }
+            appendCurrent(value) {
+                this.#Current += value
+
+            }
+            getCurrent() {
+                return this.#Current
+            }
+            getScore() {
+                return this.#Score;
+            }
+        }
+
+        class Game {
+            #Player1
+            #Player2
+            #Turn;
+            #Winner
+            #Player1scoreElement
+            #Player2scoreElement
+            #Player1currentscoreElement
+            #Player2currentscoreElement
+            #Player1Card
+            #Player2Card
+            #Player1turnpoint
+            #Player2turnpoint
+            #Winner1
+            #Winner2
+            #Dices
+
+
+            constructor(Dices, Player1scoreElement, Player2scoreElement, Player1currentscoreElement, Player2currentscoreElement, Player1Card, Player2Card, Player1turnpoint, Player2turnpoint, Winner1, Winner2) {
+                this.#Player1 = new Player();
+                this.#Player2 = new Player();
+                this.#Turn = 1;
+                this.#Winner = 0
+                this.#Dices = Dices
+                this.#Player1scoreElement = Player1scoreElement
+                this.#Player2scoreElement = Player2scoreElement
+                this.#Player1currentscoreElement = Player1currentscoreElement
+                this.#Player2currentscoreElement = Player2currentscoreElement
+                this.#Player1Card = Player1Card
+                this.#Player2Card = Player2Card
+                this.#Player1turnpoint = Player1turnpoint
+                this.#Player2turnpoint = Player2turnpoint
+                this.#Winner1 = Winner1
+                this.#Winner2 = Winner2
+
+            }
+            NewGame() {
+                this.#Player1 = new Player();
+                this.#Player2 = new Player();
+                this.#Turn = 1;
+                this.#Winner = 0;
+                this.Render();
+                this.RenderDice(-1)
+            }
+            #random(min, max) {
+                return Math.floor(Math.random() * (max - min) + min)
+            }
+
+            Roll() {
+                if (this.#Winner !== 0) return
+                const dice = this.#random(1, 6)
+                this.RenderDice(dice)
+
+                if (dice === 1) {
+                    this.#Turn === 1 && (this.#Player1.setCurrent(0))
+                    this.#Turn === 2 && (this.#Player2.setCurrent(0))
+                    this.#Turn === 1 ? this.#Turn = 2 : this.#Turn = 1
+                    //this.RenderDice(-1)
+
+                }
+                else {
+                    this.#Turn === 1 && (this.#Player1.appendCurrent(dice))
+                    this.#Turn === 2 && (this.#Player2.appendCurrent(dice))
+
+                }
+                this.Render();
+            }
+            Hold() {
+                if (this.#Winner !== 0) return
+                this.#Turn === 1 && (this.#Player1.Hold())
+                this.#Turn === 2 && (this.#Player2.Hold())
+                this.#Player1.getScore() >= 30 && (this.#Winner = 1);
+                this.#Player2.getScore() >= 30 && (this.#Winner = 2);
+                this.#Winner===0&&(this.#Turn === 1 ? this.#Turn = 2 : this.#Turn = 1)
+                this.Render();
+                this.RenderDice(-1)
+            }
+            Render() {
+                this.#Player1scoreElement.innerHTML = this.#Player1.getScore();
+                this.#Player2scoreElement.innerHTML = this.#Player2.getScore();
+                this.#Player1currentscoreElement.innerHTML = this.#Player1.getCurrent();
+                this.#Player2currentscoreElement.innerHTML = this.#Player2.getCurrent();
+                if (this.#Turn === 1) {
+                    !this.#Player1Card.classList.contains("turn") && this.#Player1Card.classList.add("turn")
+                    this.#Player2Card.classList.contains("turn") && this.#Player2Card.classList.remove("turn")
+                    !this.#Player2turnpoint.classList.contains("hidden") && this.#Player2turnpoint.classList.add("hidden")
+                    this.#Player1turnpoint.classList.contains("hidden") && this.#Player1turnpoint.classList.remove("hidden")
+                }
+                else {
+                    !this.#Player2Card.classList.contains("turn") && this.#Player2Card.classList.add("turn")
+                    this.#Player1Card.classList.contains("turn") && this.#Player1Card.classList.remove("turn")
+                    !this.#Player1turnpoint.classList.contains("hidden") && this.#Player1turnpoint.classList.add("hidden")
+                    this.#Player2turnpoint.classList.contains("hidden") && this.#Player2turnpoint.classList.remove("hidden")
+                }
+                if (this.#Winner === 1) {
+                    !this.#Winner2.classList.contains("hidden") && this.#Winner2.classList.add("hidden")
+                    this.#Winner1.classList.contains("hidden") && this.#Winner1.classList.remove("hidden")
+                }
+                if (this.#Winner === 2) {
+                    !this.#Winner1.classList.contains("hidden") && this.#Winner1.classList.add("hidden")
+                    this.#Winner2.classList.contains("hidden") && this.#Winner2.classList.remove("hidden")
+                }
+                if (this.#Winner === 0) {
+                    !this.#Winner1.classList.contains("hidden") && this.#Winner1.classList.add("hidden")
+                    !this.#Winner2.classList.contains("hidden") && this.#Winner2.classList.add("hidden")
+
+                }
+            }
+            RenderDice(dice) {
+                this.#Dices.forEach((value, index) => {
+                    if (index + 1 === dice) {
+                        value.classList.contains("hidden") && value.classList.remove("hidden")
+                    }
+                    else {
+                        !value.classList.contains("hidden") && value.classList.add("hidden")
+                    }
+                })
+            }
+
+        }
+        const dices = [
+            document.querySelector(".dice1"),
+            document.querySelector(".dice2"),
+            document.querySelector(".dice3"),
+            document.querySelector(".dice4"),
+            document.querySelector(".dice5"),
+            document.querySelector(".dice6"),
+        ]
+        const Player1scoreElement = document.querySelector(".player1score")
+        const Player2scoreElement = document.querySelector(".player2score")
+        const Player1currentscoreElement = document.querySelector(".player1currentscore")
+        const Player2currentscoreElement = document.querySelector(".player2currentscore")
+        const Player1Card = document.querySelector(".player1Card")
+        const Player2Card = document.querySelector(".player2Card")
+        const Player1turnpoint = document.querySelector(".player1turnpoint")
+        const Player2turnpoint = document.querySelector(".player2turnpoint")
+        const Winner1 = document.querySelector(".winner1")
+        const Winner2 = document.querySelector(".winner2")
+
+        let game = new Game(dices, Player1scoreElement, Player2scoreElement, Player1currentscoreElement, Player2currentscoreElement, Player1Card, Player2Card, Player1turnpoint, Player2turnpoint, Winner1, Winner2)
+        game.Render()
+
+        function roll() {
+            game.Roll()
+        }
+        function hold() {
+            game.Hold()
+        }
+        function newgame() {
+            game.NewGame()
+        }
+    </script>
+</body>
+
+</html>
